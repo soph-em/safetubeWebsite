@@ -5,6 +5,10 @@
 	import iphone from './appleiPhone.png';
 	import purple from './purpleiPhone.jpg';
 	import white from './whiteiPhone.jpg';
+	import { Splide, SplideSlide } from '@splidejs/svelte-splide';
+	import '@splidejs/svelte-splide/css';
+	import type { SvelteComponentTyped } from 'svelte';
+	// class ComponentName extends SvelteComponentTyped<{ propertyName: string }> {}
 	function scrollIntoView({ target }) {
 		const el = document.querySelector(target.getAttribute('href'));
 		if (!el) return;
@@ -52,42 +56,37 @@
 			selector
 		</p>
 	</div>
-	<div
-		class="carousel flex object-contain h-[500px]"
-		transition:slide={{ delay: 250, duration: 300, easing: quintOut }}
-	>
-		{#key current}
-			<img
-				src={images[current - 1 < 0 ? images.length - 1 : current - 1]}
-				alt={`Image ${current - 1 < 0 ? images.length : current}`}
-				class="prev-image h-[200px]"
-				transition:slide={{ delay: 250, duration: 300, easing: quintOut }}
-			/>
-
-			<img
-				src={images[current]}
-				alt={`Image ${current + 1}`}
-				class="current-image h-[200px]"
-				transition:slide={{ delay: 250, duration: 300, easing: quintOut }}
-			/>
-
-			<img
-				src={images[current + 1 > images.length - 1 ? 0 : current + 1]}
-				alt={`Image ${current + 2 > images.length ? 1 : current + 2}`}
-				class="next-image h-[200px]"
-				transition:slide={{ delay: 250, duration: 300, easing: quintOut }}
-			/>
-		{/key}
+	<div class="bg-emerald-50 w-full flex flex-col items-center h-[500px] relative">
+		<Splide
+			aria-label="My Favorite Images"
+			class="w-[500px] pt-[100px] pl-[100px] pr-[100px] pb-[50px]"
+		>
+			<SplideSlide>
+				<img src={iphone} class="h-[300px] flex items-center" />
+			</SplideSlide>
+			<SplideSlide>
+				<img src={iphone} class="h-[300px]" />
+			</SplideSlide>
+			<SplideSlide>
+				<img src={iphone} class="h-[300px]" />
+			</SplideSlide>
+			<SplideSlide>
+				<img src={iphone} class="h-[300px]" />
+			</SplideSlide>
+			<SplideSlide>
+				<img src={iphone} class="h-[300px]" />
+			</SplideSlide>
+			<SplideSlide>
+				<img src={iphone} class="h-[300px]" />
+			</SplideSlide>
+		</Splide>
 	</div>
-
-	<button on:click={prevImage}>Previous</button>
-	<button on:click={nextImage}>Next</button>
 	<div class="flex px-[10%] py-[5%] h-[500px] bg-slate-700">
-		<img class="flex object-contain p-5" src={iphone} alt="iphone" />
 		<p class="text-xl text-emerald-50 font-mono pt-[5%]">
 			Use guided access to stop your child navigating to other apps -
 			https://support.apple.com/en-gb/HT202612
 		</p>
+		<img class="flex object-contain p-5" src={iphone} alt="iphone" />
 	</div>
 </div>
 
