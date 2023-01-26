@@ -58,7 +58,7 @@
 		</p>
 	</div>
 	<div class="bg-emerald-50 w-full flex flex-col items-center h-[500px] relative">
-		<p class="pt-[30px] pr-[30px] text-2xl font-bold font-noto-sans">Features</p>
+		<p class="pt-[30px] pr-[30px] text-2xl font-bold font-noto-sans text-emerald-900">Features</p>
 		<Splide
 			aria-label="My Favorite Images"
 			class="w-[500px] pt-[50px] pl-[100px] pr-[100px] pb-[50px]"
