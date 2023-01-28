@@ -106,6 +106,3 @@
 		<img class="flex object-contain " src={iphone} alt="iphone" />
 	</div>
 </div>
-
-<style>
-</style>
